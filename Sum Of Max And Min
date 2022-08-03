@@ -1,0 +1,10 @@
+int sumOfMaxMin(int arr[], int n){
+	// Write your code here.
+    int maxNo=arr[0];
+    int minNo=arr[0];
+    for(int i=0;i<n;i++){
+        minNo=min(minNo, arr[i]);
+        maxNo=max(maxNo, arr[i]);
+    }
+    return maxNo+minNo;
+}
