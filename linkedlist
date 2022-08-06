@@ -1,0 +1,48 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class List:
+    def __init__(self,head=None):
+        self.head=head
+    def insert(self,ndata):
+        node=Node(ndata)
+        node.next=self.head
+        self.head=node
+            
+    def traversal(self,data):
+        node=self.head
+        while node is not None:
+            yield node
+            node=node.next
+            
+    def delete(self,data):
+        if not self.head:
+            return
+        
+        temp=self.head
+        
+        if self.head.data == data:
+            head=temp.next
+            print("deleted node is", str(head.data))
+            return
+        
+        while(temp.next):
+            if(temp.next.data==data):
+                print("deleted node is", str(temp.next.data)) 
+                temp.next=temp.next.next
+                return
+            temp=temp.next
+        print("Node not found")
+        return
+    
+if __name__ == '__main__':
+
+    link_list = List()
+    link_list.insert(1)
+    link_list.insert(2)
+    link_list.insert(3)
+    link_list.insert(4)
+    
+    link_list.delete(2)
